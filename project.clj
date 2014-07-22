@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.8"]
+                 [korma "0.3.2"]
                  [migratus "0.7.0"]
                  [postgresql/postgresql "9.0-801.jdbc4"]]
   :plugins [[lein-ring "0.8.11"]
@@ -16,11 +17,5 @@
                    :user "desuser"
                    :password "desuser"}}
   :profiles
-  {:dev {
-          :kapooya { :environment "development"
-                     :db-spec { :subprotocol "postgresql"
-                                :subname "172.17.33.10/des_db"
-                                :user        "desuser"
-                                :password    "desuser" }}
-          :dependencies [[javax.servlet/servlet-api "2.5"]
+  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})
