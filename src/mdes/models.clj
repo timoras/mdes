@@ -3,25 +3,16 @@
   (:use korma.db korma.core)
   (:require [clojure.string :as string]))
 
-(def hello (fn [] "Hello world"))
-
-(defn addss [x]
-  (+ x 6))
-
 (defdb prod (postgres {:db "des_db"
                         :user "desuser"
                         :password "desuser"
-                        ;; optional keys
                         :host "172.17.33.10"}))
-
-(declare expo)
-
 (defentity expo
            (pk :id)
            (table :expo)
            (database prod)
-           (entity-fields :name))
+           (entity-fields :name :description :url_code :secret_code))
 
-
-(defn by-id [id]
-  (select expo (fields :id :name) (where {:id id} )))
+(defn public-user-expo [url-code secret-code]
+  (first (select expo (fields :id )
+          (where {:url_code url-code :secret_code secret-code} ))))

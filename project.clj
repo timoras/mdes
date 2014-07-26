@@ -4,6 +4,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.8"]
                  [korma "0.3.2"]
+                 [org.clojure/data.json "0.2.5"]
                  [migratus "0.7.0"]
                  [postgresql/postgresql "9.0-801.jdbc4"]]
   :plugins [[lein-ring "0.8.11"]
